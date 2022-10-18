@@ -225,16 +225,16 @@ class GoogleDistanceMatrix
         ];
         $parameters = http_build_query($data);
         $url = self::URL.'?'.$parameters;
-        
+
         return $this->request('GET', $url);
     }
-    
+
     /**
      * @param string $type
      * @param string $url
      * @return GoogleDistanceMatrixResponse
      */
-    private function request($type = 'GET', $url) : GoogleDistanceMatrixResponse
+    private function request($type, $url) : GoogleDistanceMatrixResponse
     {
         $client = new Client();
         $response = $client->request($type, $url);
